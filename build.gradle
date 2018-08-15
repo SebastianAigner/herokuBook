@@ -46,4 +46,6 @@ dependencies {
 	testCompile "io.ktor:ktor-html-builder:$ktor_version"
 }
 
+task stage(dependsOn: ['installDist'])
+
 kotlin.experimental.coroutines = 'enable'
