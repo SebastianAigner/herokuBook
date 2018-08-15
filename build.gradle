@@ -5,6 +5,7 @@ buildscript {
 	ext.kotlinx_coroutines_version = '0.23.4'
 	
 	repositories {
+		maven {   url  "https://dl.bintray.com/kotlin/exposed"} // <--
 		jcenter()
 	}
 	
@@ -30,6 +31,9 @@ sourceSets {
 repositories {
 	jcenter()
 	maven { url 'https://kotlin.bintray.com/ktor' }
+	maven {
+		url "https://dl.bintray.com/kotlin/exposed"
+	}
 }
 
 dependencies {
@@ -44,6 +48,8 @@ dependencies {
 	testCompile "io.ktor:ktor-server-tests:$ktor_version"
 	testCompile "io.ktor:ktor-server-core:$ktor_version"
 	testCompile "io.ktor:ktor-html-builder:$ktor_version"
+	compile 'org.jetbrains.exposed:exposed:0.10.3'
+	compile 'org.postgresql:postgresql:42.2.4.jre7'
 }
 
 task stage(dependsOn: ['installDist'])
